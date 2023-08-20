@@ -1,4 +1,4 @@
-package com.core.fullstack.java8feature;
+package com.core.fullstack.java8feature.Reflection;
 
 import java.lang.Class;
 import java.lang.reflect.*;
@@ -31,21 +31,7 @@ public class ReflectionPractice {
   }
 }
 
-class Person {
-    private String name;
-    private int age;
-}
 
-
-//public void givenObject_whenGetsFieldNamesAtRuntime_thenCorrect() {
-//    Object person = new Person();
-//    Field[] fields = person.getClass().getDeclaredFields();
-//
-//    List<String> actualFieldNames = getFieldNames(fields);
-//
-//    assertTrue(Arrays.asList("name", "age")
-//      .containsAll(actualFieldNames));
-//}
 
 
 
