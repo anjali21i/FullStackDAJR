@@ -1,3 +1,5 @@
+package com.core.fullstack.java8feature;
+
 import java.lang.Class;
 import java.lang.reflect.*;
 
@@ -10,7 +12,7 @@ class Dog extends Animal {
   }
 }
 
-public class Main {
+public class ReflectionTest {
   public static void main(String[] args) {
     try {
       Dog d1 = new Dog();

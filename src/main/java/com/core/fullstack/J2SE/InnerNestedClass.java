@@ -1,4 +1,4 @@
-package com.core.fullstack.SCJP;
+package com.core.fullstack.J2SE;
 
 public class InnerNestedClass {
 	public static void main(String args[]) {

@@ -1,3 +1,5 @@
+package com.core.fullstack.java8feature.enums;
+
 enum EnumTest2 {
 	SMALL("The size is small."),
 	MEDIUM("The size is medium."),
