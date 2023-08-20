@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.Map;
 
-public class StreamTest2 {
+public class StreamPractice2 {
 
    public static void main(String args[]) {
       System.out.println("Using Java 7: ");

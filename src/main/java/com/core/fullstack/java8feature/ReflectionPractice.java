@@ -12,7 +12,7 @@ class Dog extends Animal {
   }
 }
 
-public class ReflectionTest {
+public class ReflectionPractice {
   public static void main(String[] args) {
     try {
       Dog d1 = new Dog();
@@ -30,3 +30,24 @@ public class ReflectionTest {
     }
   }
 }
+
+class Person {
+    private String name;
+    private int age;
+}
+
+
+//public void givenObject_whenGetsFieldNamesAtRuntime_thenCorrect() {
+//    Object person = new Person();
+//    Field[] fields = person.getClass().getDeclaredFields();
+//
+//    List<String> actualFieldNames = getFieldNames(fields);
+//
+//    assertTrue(Arrays.asList("name", "age")
+//      .containsAll(actualFieldNames));
+//}
+
+
+
+
+

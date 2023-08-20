@@ -1,6 +1,6 @@
 package com.core.fullstack.java8feature.enums;
 
-enum EnumTest2 {
+enum EnumPractice2 {
 	SMALL("The size is small."),
 	MEDIUM("The size is medium."),
 	LARGE("The size is large."),
@@ -8,7 +8,7 @@ enum EnumTest2 {
 
 	private final String pizzaSize;
 
-	private EnumTest2(String pizzaSize) {
+	private EnumPractice2(String pizzaSize) {
 		this.pizzaSize = pizzaSize;
 	}
 
@@ -17,7 +17,7 @@ enum EnumTest2 {
 	}
 	
 	public static void main(String[] args) {
-		EnumTest2 size = EnumTest2.SMALL;
+		EnumPractice2 size = EnumPractice2.SMALL;
 		System.out.println(size.getSize());
 	}
 }

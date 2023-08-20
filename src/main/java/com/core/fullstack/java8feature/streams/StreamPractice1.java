@@ -8,10 +8,10 @@ import com.core.fullstack.Beans.Employee;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class StreamTest {
+public class StreamPractice1 {
 	
 	public static void main(String args[]) {
-		StreamTest val = new StreamTest();
+		StreamPractice1 val = new StreamPractice1();
 		Employee emp= new Employee(); 
 		List<Employee> dd = val.getData(emp);
 		
