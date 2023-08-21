@@ -22,12 +22,17 @@ interface Mammel {
 	void display();
 }
 
+
 class Dog extends Animal implements Mammel{
-	 private String breed;
+	 public String breed;
 	 
 	 @Override
 	 public void display() {
 		System.out.println("I am a dog.");
+	 }
+	 
+	 public String getName(String name) {
+		 return name;
 	 }
 }
 
@@ -54,7 +59,7 @@ public class ReflectionPractice {
 	public static void main(String[] args) {
 		try {
 			Dog d1 = new Dog();
-			Class obj = d1.getClass();
+			Class<? extends Dog> obj = d1.getClass();
 
 			String name = obj.getName();
 			System.out.println("Name: " + name);
@@ -63,20 +68,37 @@ public class ReflectionPractice {
 			String mod = Modifier.toString(modifier);
 			System.out.println("Modifier: " + mod);
 			
-			Class superClass = obj.getSuperclass();
+			Class<?> superClass = obj.getSuperclass();
 			System.out.println("Superclass: " + superClass.getName());
 			
 			Field[] fields = d1.getClass().getDeclaredFields();
 			System.out.println("fields: " + fields);
 			
+			Field field1 = d1.getClass().getField("breed");
+			System.out.println("field1: " + field1);
+			
 			List<String> actualFieldNames = getFieldNames(fields);
 			System.out.println("actualFieldNames: " + actualFieldNames);
 			
 			Class<?>[] animalInterfaces = obj.getInterfaces();
-			System.out.println("animalInterfaces: " + animalInterfaces);
+			System.out.println("animalInterfaces: " + animalInterfaces) ;
 			
+			Method[] getDetail = d1.getClass().getDeclaredMethods();
+			System.out.println("getDetail: " + getDetail);
+					
+			Method method = d1.getClass().getMethod("display");
+			Method method2 = d1.getClass().getMethod("getName");
 			
+			System.out.println("method: " + method);
+			System.out.println("method2: " + method2);
 
+			int modifi = method2.getModifiers();
+			System.out.println("modifi: " + modifi);
+	        System.out.println("Modifier: " + Modifier.toString(modifi));
+	        
+	        System.out.println(" method2m ReturnType: " +  method2.getReturnType());
+	       
+	       
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
