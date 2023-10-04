@@ -1,6 +1,6 @@
 package com.core.fullstack.jdbc;
 
-import com.core.fullstack.Entity.Employee;
+import com.core.fullstack.entitybean.Employee;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

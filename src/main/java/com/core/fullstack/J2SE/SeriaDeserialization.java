@@ -1,4 +1,4 @@
-package com.core.fullstack.SCJP;
+package com.core.fullstack.J2SE;
 
 import java.io.File;
 import java.io.FileWriter;

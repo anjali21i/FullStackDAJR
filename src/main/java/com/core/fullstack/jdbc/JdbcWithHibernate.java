@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.core.fullstack.Entity.Employee;
+import com.core.fullstack.entitybean.Employee;
 
 public class JdbcWithHibernate {
 

@@ -1,4 +1,4 @@
-package com.core.fullstack.Entity;
+package com.core.fullstack.entitybean;
 
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
