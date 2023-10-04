@@ -14,7 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.transaction.Transactional;
 import lombok.Data;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class JdbcWithSpringData implements CommandLineRunner {
 
     @Autowired
