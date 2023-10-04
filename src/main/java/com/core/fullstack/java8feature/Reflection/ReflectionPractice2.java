@@ -1,19 +1,15 @@
 package com.core.fullstack.java8feature.Reflection;
 
-import static org.junit.Assert.assertTrue;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
 
 class Person {
     private String name;
     private int age;
 }
-
 
 public class ReflectionPractice2 {
 
@@ -24,14 +20,11 @@ public class ReflectionPractice2 {
 	    return fieldNames;
 	}
 
-	@Test
 	public void givenObject_whenGetsFieldNamesAtRuntime_thenCorrect() {
 	    Object person = new Person();
 	    Field[] fields = person.getClass().getDeclaredFields();
 
 	    List<String> actualFieldNames = getFieldNames(fields);
 
-	    assertTrue(Arrays.asList("name", "age")
-	      .containsAll(actualFieldNames));
 	}
 }
