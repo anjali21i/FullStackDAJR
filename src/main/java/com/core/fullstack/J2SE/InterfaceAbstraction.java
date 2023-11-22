@@ -5,7 +5,7 @@ public class InterfaceAbstraction {
 	public static void main(String[] args) {
 
         Bird bird = new Bird();
-        Animal animal = bird;
+        Animals animal = bird;
         FlightEnabled flier = bird;
         Trackable tracked = bird;
 
@@ -33,12 +33,12 @@ interface Trackable {
     void track();
 }
 
-abstract class Animal {
+abstract class Animals {
 
     public abstract void move();
 }
 
-class Bird extends Animal implements FlightEnabled, Trackable {
+class Bird extends Animals implements FlightEnabled, Trackable {
 
     @Override
     public void move() {
