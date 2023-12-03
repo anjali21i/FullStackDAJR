@@ -1,10 +1,20 @@
 package com.core.fullstack.J2SE;
 
-abstract class Car {
+abstract class Vehicle {
+	public abstract String noOfWheel();
+}
+
+abstract class Car extends Vehicle {
 	public abstract String model();
 	public String engine() {
 		return "40cc";
 	}	
+	
+	@Override
+	public String noOfWheel() {
+		// TODO Auto-generated method stub
+		return "4";
+	}
 }
 
 class SUV extends Car {
@@ -12,12 +22,24 @@ class SUV extends Car {
 	public String model() {
 		return "67-Cs";	
 	}
+
+//	@Override
+//	public String noOfWheel() {
+//		// TODO Auto-generated method stub
+//		return "4";
+//	}
 }
 
 class Maruti extends Car {
 	@Override
 	public String model() {
 		return "roger-yutg";
+	}
+
+	@Override
+	public String noOfWheel() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 
