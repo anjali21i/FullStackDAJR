@@ -1,4 +1,4 @@
-package interceptor;
+package com.core.fullstack.interceptor;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -8,13 +8,16 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.core.fullstack.security.ApplicationSecurityServiceImpl;
+import com.core.fullstack.utils.Constant;
+
 import security.AuthenticatedUserRecord;
 import service.ApplicationSecurityService;
 
 public class OAuthLoginInterceptor extends HandlerInterceptorAdapter{
 	
 	@Autowired
-    private ApplicationSecurityService securityService;
+    private ApplicationSecurityServiceImpl securityService;
 	
 	@Autowired
 	Constant constant;

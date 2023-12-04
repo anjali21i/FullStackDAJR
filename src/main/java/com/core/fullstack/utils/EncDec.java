@@ -1,4 +1,4 @@
-package util;
+package com.core.fullstack.utils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -14,10 +14,8 @@ import javax.crypto.spec.DESKeySpec;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-/**
- * @author abhishek.jaiswal@timesgroup.com
- *	 
- */
+
+
 public class EncDec {   
 		private static Logger logger = LoggerFactory.getLogger(EncDec.class);
 		private static Cipher ecipher;

@@ -1,4 +1,11 @@
+package com.core.fullstack.security;
 
+import java.io.Serializable;
+import java.util.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
@@ -6,7 +13,7 @@
 public class AuthenticatedUserRecord implements Serializable {
 
 	private static final long serialVersionUID = 416687071872452689L;
-	
+
 	private Long userId;
 	private String loginId;
 	private String password;
@@ -17,8 +24,8 @@ public class AuthenticatedUserRecord implements Serializable {
 	private String firstName;
 	private String username;
 	private String accessToken;
-  private String strQue;
-  private String strAns;
-  private String afterLoginPage;
-  private Date lastlogintime;
+	private String strQue;
+	private String strAns;
+	private String afterLoginPage;
+	private Date lastlogintime;
 }

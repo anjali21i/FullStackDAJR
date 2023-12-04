@@ -1,4 +1,4 @@
-package config;
+package com.core.fullstack.config;
 
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,6 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter   {
       return new BCryptPasswordEncoder();
    }
    
-   @Override
    public void configure(HttpSecurity http) throws Exception {
 	    http.headers().frameOptions().sameOrigin();
 		http.csrf().disable();

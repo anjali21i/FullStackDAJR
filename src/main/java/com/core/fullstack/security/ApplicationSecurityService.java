@@ -1,5 +1,6 @@
+package com.core.fullstack.security;
 
-import AuthenticatedUserRecord;
+
 public interface ApplicationSecurityService {
 	
 	AuthenticatedUserRecord getAuthenticatedUserRecord();
