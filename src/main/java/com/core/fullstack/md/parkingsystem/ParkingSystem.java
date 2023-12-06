@@ -1,4 +1,4 @@
-package parking.system;
+package com.core.fullstack.md.parkingsystem;
 
 import java.util.ArrayList;
 import java.util.Date;

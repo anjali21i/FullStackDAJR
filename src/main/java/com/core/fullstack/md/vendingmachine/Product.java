@@ -1,4 +1,4 @@
-package vendingmachine;
+package com.core.fullstack.md.vendingmachine;
 
 public abstract class Product {
 	

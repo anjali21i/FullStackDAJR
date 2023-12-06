@@ -1,16 +1,16 @@
-package parking.system;
+package com.core.fullstack.md.parkingsystem;
 
-public class Scooter extends Vehicle {
+public class Car extends Vehicle {
 
     private Long noPlate;
     private Long price;
     private Long date;
 
-    public Scooter() {
-
+    public Car() {
+        
     }
 
-    public Scooter(Long noPlate, Long price, Long date) {
+    public Car(Long noPlate, Long price, Long date) {
         this.noPlate = noPlate;
         this.price = price;
         this.date = date;
@@ -33,7 +33,7 @@ public class Scooter extends Vehicle {
 
     @Override
     public String toString() {
-        return "Scooter [noPlate=" + noPlate + ", price=" + price + ", date=" + date + "]";
+        return "Car [noPlate=" + noPlate + ", price=" + price + ", date=" + date + "]";
     }
     
 }

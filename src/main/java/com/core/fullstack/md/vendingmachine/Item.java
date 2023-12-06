@@ -1,4 +1,4 @@
-package vendingmachine;
+package com.core.fullstack.md.vendingmachine;
 
 public class Item extends Product{
 
