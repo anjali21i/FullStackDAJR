@@ -1,18 +1,15 @@
 package com.core.fullstack.interceptor;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.core.fullstack.security.ApplicationSecurityServiceImpl;
+import com.core.fullstack.security.AuthenticatedUserRecord;
 import com.core.fullstack.utils.Constant;
 
-import security.AuthenticatedUserRecord;
-import service.ApplicationSecurityService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class OAuthLoginInterceptor extends HandlerInterceptorAdapter{
 	
@@ -31,7 +28,7 @@ public class OAuthLoginInterceptor extends HandlerInterceptorAdapter{
     			requestUrl = requestUrl+"?"+queryString;
     		
     		requestUrl = requestUrl.replace("http://localhost:" + constant.getSERVERPORT(), constant.getDOMAINURL());
-    		if(org.apache.commons.lang.StringUtils.isEmpty(constant.getAPPENV()) || !constant.getAPPENV().equalsIgnoreCase("dev"))
+    		if(StringUtils.isEmpty(constant.getAPPENV()) || !constant.getAPPENV().equalsIgnoreCase("dev"))
     			requestUrl = requestUrl.replace("http:", "https:");
     		String encryptedUrl = EncDec.encrypt(requestUrl);
     		response.addCookie(makeSecureLoginUrlCookie(request, encryptedUrl));

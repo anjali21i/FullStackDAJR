@@ -1,4 +1,4 @@
-package com.core.fullstack.webApis.frontControllers;
+package com.core.fullstack.webapis.frontcontrollers;
 
 import org.springframework.stereotype.Controller;
 
