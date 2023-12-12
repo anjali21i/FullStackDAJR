@@ -26,6 +26,7 @@ const loadClientComponent = (componentLocation, componentName, skipHashVer, chun
         resolve: {
             extensions: ['.js', '.jsx']
         },
+        mode:'development',
         plugins: [
             // new CleanWebpackPlugin([TARGET_CLIENT], {
             //         root: BASE_PATH + '/' + OUTPUT_PATH
