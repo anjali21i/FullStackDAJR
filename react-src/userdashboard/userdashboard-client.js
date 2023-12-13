@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router'
 import thunk from 'redux-thunk';
 import { applyMiddleware } from 'redux';
+import RootComponent from './RootComponent';
 const { PersistGate } = require("redux-persist/integration/react");
 const { PROJECT_ID_MAP } = require("./utils");
 const { configureStore } = require("@reduxjs/toolkit");
@@ -22,10 +23,10 @@ const clientStore = configureStore({
 const initialState = {}
 
 ReactDOM.hydrate(
-    (<App />), document.getElementById(PROJECT_ID_MAP.USER_DASHBOARD)
+    (csrReactComponent), document.getElementById(PROJECT_ID_MAP.USER_DASHBOARD)
 )
 
-const App = () => (
+const csrReactComponent = () => (
     <Provider clientStore={clientStore} serverStore={preloadedState}>
         <PersistGate loading={null} persistor={persistor}>
             <RootComponent />
@@ -33,4 +34,4 @@ const App = () => (
     </Provider>
 );
 
-render(<App />, document.getElementById(PROJECT_ID_MAP.USER_DASHBOARD));
+render(csrReactComponent, document.getElementById(PROJECT_ID_MAP.USER_DASHBOARD));
