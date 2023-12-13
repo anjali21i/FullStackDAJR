@@ -3,15 +3,6 @@ package com.core.fullstack.J2SE;
 import java.util.ArrayList;
 import java.util.List;
 
-interface Player {
-}
-
-record BaseballPlayer(String name, String position) implements Player {
-}
-
-record FootballPlayer(String name, String position) implements Player {
-}
-
 public class GenericsSample {
 
 	public static void main(String[] args) {
@@ -135,58 +126,6 @@ class SportsTeam {
 
 		if (!teamMembers.contains(player)) {
 			teamMembers.add(player);
-		}
-	}
-
-	public void listTeamMembers() {
-
-		System.out.println(teamName + " Roster:");
-		System.out.println(teamMembers);
-	}
-
-	public int ranking() {
-		return (totalLosses * 2) + totalTies + 1;
-	}
-
-	public String setScore(int ourScore, int theirScore) {
-
-		String message = "lost to";
-		if (ourScore > theirScore) {
-			totalWins++;
-			message = "beat";
-		} else if (ourScore == theirScore) {
-			totalTies++;
-			message = "tied";
-		} else {
-			totalLosses++;
-		}
-
-		return message;
-
-	}
-
-	@Override
-	public String toString() {
-		return teamName + " (Ranked " + ranking() + ")";
-	}
-}
-
-class Team<T> {
-
-	private String teamName;
-	private List<T> teamMembers = new ArrayList<>();
-	private int totalWins = 0;
-	private int totalLosses = 0;
-	private int totalTies = 0;
-
-	public Team(String teamName) {
-		this.teamName = teamName;
-	}
-
-	public void addTeamMember(T t) {
-
-		if (!teamMembers.contains(t)) {
-			teamMembers.add(t);
 		}
 	}
 
