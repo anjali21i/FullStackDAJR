@@ -1,4 +1,16 @@
 package com.core.fullstack.J2SE;
+
+class ExceptionWaliClass {
+	int i = 0;
+
+	public int getDataExcep5() {
+		System.out.println("inside Excep5.getDataExcep5:: ");
+		i = 5;
+		i = i / 0;
+		return i;
+	}
+}
+
 public class ExceptionHandlingPractice {
 
 	public static void main(String args[]) {
@@ -17,7 +29,7 @@ class Excep1 {
 		System.out.println("inside getDataExcep1:: ");
 		ExceptionContainer excc = new ExceptionContainer();
 		
-		excc.getDataExcep4();
+		excc.getDataExcep4();     //it will produce exception aS 
 		
 		try {
 			excc.getDataExcep40();
@@ -102,16 +114,5 @@ class ExceptionContainer {
 			e.printStackTrace();
 		}
 		return 0;
-	}
-}
-
-class ExceptionWaliClass {
-	int i = 0;
-
-	public int getDataExcep5() {
-		System.out.println("inside Excep5.getDataExcep5:: ");
-		i = 5;
-		i = i / 0;
-		return i;
 	}
 }

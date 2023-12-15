@@ -1,4 +1,4 @@
-package com.core.fullstack;
+package com.core.fullstack.SpringAop;
   
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
