@@ -80,6 +80,7 @@ public class PasswordPolicyValidator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
 	}
 	public static void main(String args[]) {
 		getA("anj", "tty@ddd4.nj");
