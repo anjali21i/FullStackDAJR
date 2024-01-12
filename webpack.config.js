@@ -1,6 +1,7 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = () => [
     loadServerComponent('userdashboard', 'userdashboard', false),
@@ -12,7 +13,7 @@ const OUTPUT_PATH = 'src/main/resources/public/generated';
 const TARGET_SERVER = 'server';
 const TARGET_CLIENT = 'client';
 
-const loadClientComponent = (componentLocation, componentName, skipHashVer, chunkName) => {
+const loadClientComponent = (componentLocation, componentName, skipHashVer, chunkName, imgDirLocFlag) => {
 
     return {
         context: __dirname,
@@ -41,16 +42,53 @@ const loadClientComponent = (componentLocation, componentName, skipHashVer, chun
         module: {
             rules: [
                 {
-                    test: /\.js$/,
-                    exclude: /node_modules/,
-                    use: 'babel-loader'
+                  test: /\.js$/,
+                  exclude: /node_modules/,
+                  use: 'babel-loader',
+                  sideEffects:true
+                },
+                {
+                  test: /\.mjs$/,
+                  include: /node_modules/,
+                  type: 'javascript/auto'
+                },
+                {
+                  test: /\.css$/,
+                  use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                  ],
+                  sideEffects:true
+                },
+                {
+                  test: /\.scss$/,
+                  use: [
+                    MiniCssExtractPlugin.loader,
+                    { loader: 'css-loader', options: { sourceMap: true, importLoaders: 1 } },
+                    { loader: 'sass-loader', options: { sourceMap: true } },
+                    
+                  ],
+                  sideEffects:true
+                },
+                {
+                  test: /\.(png|jpe?g|gif|svg|webp)$/i,
+                  use: [
+                   {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        emitFile: false,
+                        publicPath: imgDirLocFlag ? "../../../images" : "../../images"
+                    },
+                   }
+                  ]
+                },
+                {
+                  test: /\.(ttf|eot|woff2?)$/,
+                  loader: 'null-loader'
                 },
                 {
                     test: /\.svg$/,
-                    loader: 'null-loader'
-                },
-                {
-                    test: /\.(ttf|eot|woff2?)$/,
                     loader: 'null-loader'
                 }
             ]
@@ -92,7 +130,12 @@ const loadServerComponent = (componentLocation, componentName) => {
                 {
                     test: /\.(ttf|eot|woff2?)$/,
                     loader: 'null-loader'
-                }
+                },
+                {
+                    test: /\.mjs$/,
+                    include: /node_modules/,
+                    type: 'javascript/auto'
+                  }
             ]
         }
 
