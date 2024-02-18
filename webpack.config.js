@@ -5,7 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = () => [
     loadServerComponent('userdashboard', 'userdashboard', false),
-    loadClientComponent('userdashboard', 'userdashboard', false, "")
+    loadClientComponent('userdashboard', 'userdashboard', false, ""),
+    loadClientComponent('loginpage', 'loginpage')
 ]
 
 const BASE_PATH = __dirname;
@@ -14,7 +15,7 @@ const TARGET_SERVER = 'server';
 const TARGET_CLIENT = 'client';
 
 const loadClientComponent = (componentLocation, componentName, skipHashVer, chunkName, imgDirLocFlag) => {
-
+    console.log("loadClientComponent :::",componentLocation, componentName, skipHashVer, chunkName, imgDirLocFlag)
     return {
         context: __dirname,
         entry: `/react-src/${componentLocation}/${componentName}-client.js`,
@@ -25,7 +26,7 @@ const loadClientComponent = (componentLocation, componentName, skipHashVer, chun
             publicPath: `/dashboardstatic/${new Date().getTime()}/client/`
         },
         resolve: {
-            extensions: ['.js', '.jsx']
+            extensions: ['.js', '.jsx', '.ts']
         },
         mode:'development',
         plugins: [
@@ -96,9 +97,8 @@ const loadClientComponent = (componentLocation, componentName, skipHashVer, chun
     }
 }
 
-
 const loadServerComponent = (componentLocation, componentName) => {
-
+    console.log("loadServerComponent :::", componentLocation, componentName)
     return {
         context: __dirname,
         mode: 'development',
@@ -108,7 +108,7 @@ const loadServerComponent = (componentLocation, componentName) => {
             path: path.resolve(__dirname, OUTPUT_PATH + '/' + TARGET_SERVER)
         },
         resolve: {
-            extensions: ['.js', '.jsx']
+            extensions: ['.js', '.jsx', '.ts']
         },
         // plugins: [
         //     new CleanWebpackPlugin([TARGET_SERVER], {
@@ -138,6 +138,5 @@ const loadServerComponent = (componentLocation, componentName) => {
                   }
             ]
         }
-
     }
 }
