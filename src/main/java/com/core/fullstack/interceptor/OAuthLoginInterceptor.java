@@ -1,7 +1,8 @@
 package com.core.fullstack.interceptor;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+// import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.core.fullstack.security.ApplicationSecurityServiceImpl;
 import com.core.fullstack.security.AuthenticatedUserRecord;
@@ -11,7 +12,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class OAuthLoginInterceptor extends HandlerInterceptorAdapter{
+public class OAuthLoginInterceptor {
 	
 	@Autowired
     private ApplicationSecurityServiceImpl securityService;
@@ -27,12 +28,12 @@ public class OAuthLoginInterceptor extends HandlerInterceptorAdapter{
     		if(queryString != null && !"".equals(queryString))
     			requestUrl = requestUrl+"?"+queryString;
     		
-    		requestUrl = requestUrl.replace("http://localhost:" + constant.getSERVERPORT(), constant.getDOMAINURL());
-    		if(StringUtils.isEmpty(constant.getAPPENV()) || !constant.getAPPENV().equalsIgnoreCase("dev"))
-    			requestUrl = requestUrl.replace("http:", "https:");
-    		String encryptedUrl = EncDec.encrypt(requestUrl);
-    		response.addCookie(makeSecureLoginUrlCookie(request, encryptedUrl));
-			response.sendRedirect(constant.getDOMAINURL() + constant.getCONTEXTROOTURL() + "/secure-login?page="+encryptedUrl);
+    		// requestUrl = requestUrl.replace("http://localhost:" + constant.getSERVERPORT(), constant.getDOMAINURL());
+    		// if(StringUtils.isEmpty(constant.getAPPENV()) || !constant.getAPPENV().equalsIgnoreCase("dev"))
+    		// 	requestUrl = requestUrl.replace("http:", "https:");
+    		// String encryptedUrl = EncDec.encrypt(requestUrl);
+    		// response.addCookie(makeSecureLoginUrlCookie(request, encryptedUrl));
+			// response.sendRedirect(constant.getDOMAINURL() + constant.getCONTEXTROOTURL() + "/secure-login?page="+encryptedUrl);
 			return false;
     	}
 		return true;
@@ -42,9 +43,9 @@ public class OAuthLoginInterceptor extends HandlerInterceptorAdapter{
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null && cookies.length > 0) {
 			for (int i = 0; i < cookies.length; ++i) {
-			   if (Constant.ACEGI_SECURITY_HASHED_REMEMBER_ME_COOKIE.equals(cookies[i].getName())) {
-				   return true;
-			   }
+			//    if (Constant.ACEGI_SECURITY_HASHED_REMEMBER_ME_COOKIE.equals(cookies[i].getName())) {
+			// 	   return true;
+			//    }
 			}
 		}
 		return false;
