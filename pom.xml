@@ -140,6 +140,11 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.5.14</version>
 		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
+			<version>3.6.0</version>
+		</dependency>
 		<!-- <dependency>
 			<groupId>io.spring.training.core-spring</groupId>
 			<artifactId>42-security-rest</artifactId>

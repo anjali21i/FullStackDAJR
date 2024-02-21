@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 import java.time.Duration;
 import java.util.Random;
 
-public class RealTimeTempratureSensor {
+public class RealTimeTemperatureSensor {
 
 	public static void main(String[] args) {
 		// Simulating a real-time data stream of temperature readings from multiple
