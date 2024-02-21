@@ -1,4 +1,4 @@
-package com.core.fullstack;
+package com.core.fullstack.fileio;
 
 import java.io.FileWriter;
 import java.io.IOException;
