@@ -1,4 +1,4 @@
-package com.core.fullstack.J2SE;
+package com.core.fullstack.J2SE.oops;
 
 abstract class Vehicle {
 	public abstract String noOfWheel();

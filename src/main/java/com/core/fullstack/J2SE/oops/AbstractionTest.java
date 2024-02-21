@@ -1,4 +1,4 @@
-package com.core.fullstack.J2SE;
+package com.core.fullstack.J2SE.oops;
 
 import java.util.ArrayList;
 
