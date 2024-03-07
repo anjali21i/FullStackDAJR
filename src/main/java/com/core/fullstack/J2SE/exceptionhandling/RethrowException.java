@@ -17,7 +17,7 @@ public class RethrowException {
         } catch (ArithmeticException e) {
             // Perform some handling/logging
             System.out.println("Caught arithmetic exception: " + e.getMessage());
-            
+
             // Rethrow the exception
             throw new CustomException("Error occurred in someMethod", e);
         }
@@ -25,12 +25,5 @@ public class RethrowException {
 
     public static int divide(int a, int b) {
         return a / b;
-    }
-}
-
-// Custom checked exception
-class CustomException extends Exception {
-    public CustomException(String message, Throwable cause) {
-        super(message, cause);
     }
 }

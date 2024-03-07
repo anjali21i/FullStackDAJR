@@ -17,8 +17,8 @@ public class OAuthLoginInterceptor {
 	@Autowired
     private ApplicationSecurityServiceImpl securityService;
 	
-	@Autowired
-	Constant constant;
+	// @Autowired
+	// Constant constant;
 	
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		AuthenticatedUserRecord userRecord = securityService.getAuthenticatedUserRecord();

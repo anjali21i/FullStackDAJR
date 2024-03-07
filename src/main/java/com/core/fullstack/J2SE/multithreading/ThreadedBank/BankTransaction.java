@@ -1,8 +1,8 @@
 package com.core.fullstack.J2SE.multithreading.ThreadedBank;
 
-public class BankTransactionExample {
+public class BankTransaction {
     public static void main(String[] args) {
-        Bank account = new Bank(1000);
+    	BankAccount account = new BankAccount(1000);
 
         Runnable depositor = () -> {
             for (int i = 0; i < 5; i++) {

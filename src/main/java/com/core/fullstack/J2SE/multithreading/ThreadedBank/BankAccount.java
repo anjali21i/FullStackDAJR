@@ -4,7 +4,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-class BankAccount {
+public class BankAccount {
     private double balance;
     private final Lock lock;
     private final Condition sufficientFundsCondition;
