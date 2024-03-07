@@ -39,10 +39,10 @@ class Engine {
     }
 }
 
-class Car {
+class CarClass {
     Engine engine;
 
-    public Car(Engine engine) {
+    public CarClass(Engine engine) {
         this.engine = engine;
     }
 
@@ -53,13 +53,13 @@ class Car {
 }
 
 // Inheritance Example
-class Animal {
+class AnimalClass {
     void eat() {
         System.out.println("Animal is eating");
     }
 }
 
-class Dog extends Animal {
+class DogClass extends AnimalClass {
     void bark() {
         System.out.println("Dog is barking");
     }
@@ -78,11 +78,11 @@ public class OOPs {
 
         // Composition Example
         Engine carEngine = new Engine();
-        Car myCar = new Car(carEngine);
+        CarClass myCar = new CarClass(carEngine);
         myCar.startCar();
 
         // Inheritance Example
-        Dog myDog = new Dog();
+        DogClass myDog = new DogClass();
         myDog.eat();
         myDog.bark();
     }
