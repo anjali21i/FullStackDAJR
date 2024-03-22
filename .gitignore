@@ -31,7 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-### FrontEnd ###
-*/node_modules/*
-node_modules
