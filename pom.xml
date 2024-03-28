@@ -169,6 +169,17 @@
 			<artifactId>reactor-core</artifactId>
 			<version>3.6.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>9.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+			<version>9.10.0</version>
+		</dependency>
+
 		<!-- <dependency>
 			<groupId>io.spring.training.core-spring</groupId>
 			<artifactId>42-security-rest</artifactId>
