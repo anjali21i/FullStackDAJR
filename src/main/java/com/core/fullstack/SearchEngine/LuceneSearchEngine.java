@@ -27,7 +27,6 @@ public class LuceneSearchEngine {
             StandardAnalyzer analyzer = new StandardAnalyzer();
             IndexWriterConfig config = new IndexWriterConfig(analyzer);
             IndexWriter writer = new IndexWriter(index, config);
-            FieldType TYPE = new FieldType();
             Document doc1 = new Document();
             doc1.add(new TextField("content", "Lucene is a full-text search engine library in Java. Anjali is using",Field.Store.YES));
             writer.addDocument(doc1);
