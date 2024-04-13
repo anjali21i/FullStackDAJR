@@ -1,5 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from "redux-persist";
+import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/lib/persistStore";
 
 export const getStoreConfig = (initialState) => {
@@ -20,3 +21,7 @@ export const getStoreConfig = (initialState) => {
 export const clientStore = configureStore(getStoreConfig());
 
 export const persistor = persistStore(clientStore);
+
+
+export const rootReducer = combineReducers(allReducers);
+export default persistReducer(persistConfig, rootReducer);

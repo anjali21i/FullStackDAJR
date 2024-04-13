@@ -7,4 +7,16 @@ public class DoublyLinkedListImpl {
 		
 	}
 
+
+	private class Node<E> {
+		E data;
+		Node<E> next;
+		Node<E> prev;
+	
+		Node(int d) {
+			// data = d;
+			next = null;
+		}
+	}
+
 }

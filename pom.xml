@@ -13,7 +13,7 @@
 	<name>FullStackDAJR</name>
 	<description>Project for enhacing skills in java</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -74,7 +74,8 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.30</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.passay</groupId>
@@ -104,10 +105,33 @@
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>2.0.10</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-logback</artifactId>
+			<version>2.0.10</version>
+		</dependency> -->
+		<!-- <dependency>
+			<groupId>org.slf4j</groupId>
 			<artifactId>log4j-over-slf4j</artifactId>
 			<version>1.7.30</version>
-		</dependency>
+		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+		
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>6.1.0-M2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
@@ -141,10 +165,26 @@
 			<version>4.5.14</version>
 		</dependency>
 		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
+			<version>3.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>9.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+			<version>9.10.0</version>
+		</dependency>
+
+		<!-- <dependency>
 			<groupId>io.spring.training.core-spring</groupId>
 			<artifactId>42-security-rest</artifactId>
 			<version>5.3.23</version>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<build>
@@ -154,7 +194,7 @@
 				<artifactId>hibernate-enhance-maven-plugin</artifactId>
 				<version>${hibernate.version}</version>
 				<executions>
-					<execution>
+					<!-- <execution>
 						<id>enhance</id>
 						<goals>
 							<goal>enhance</goal>
@@ -164,7 +204,7 @@
 							<enableDirtyTracking>true</enableDirtyTracking>
 							<enableAssociationManagement>true</enableAssociationManagement>
 						</configuration>
-					</execution>
+					</execution> -->
 				</executions>
 			</plugin>
 			<plugin>
