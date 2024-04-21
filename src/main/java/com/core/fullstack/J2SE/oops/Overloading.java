@@ -1,5 +1,16 @@
 package com.core.fullstack.J2SE.oops;
 
+class PO {
+	public static void getDetail(int val) {
+		System.out.println("int obj: "+ val);
+	}
+}
+
+class CO extends PO {
+	public static void getDetailChild(int val) {
+		System.out.println("int obj: "+ val);
+	}
+}
 class Overload {
 	/////////////////////////////////////
 	
@@ -49,7 +60,13 @@ class Overload {
 	}
 	
 	
+	public static void getDetailD(PO val) {   //var arg   least priority  act as default case
+		System.out.println("PO ver");
+	}
 	
+	public static void getDetailD(CO val) {   //var arg   least priority  act as default case
+		System.out.println("CO ver");
+	}
 	
 }
 public class Overloading {
@@ -75,10 +92,17 @@ public class Overloading {
 		ov.getDetailVal();  //var arg
 		ov.getDetailVal(9, 0, 7);  //var arg 
 		
+		
+		PO ob1 = new PO();
+		ov.getDetailD(ob1);		//PO
+		CO ob2 = new CO();
+		ov.getDetailD(ob2);		//CO
+		PO ob3 = new CO();
+		ov.getDetailD(ob3);   //PO
+		
+	
+		
+		
 	}
-	
-	
-	
-	
 
 }
