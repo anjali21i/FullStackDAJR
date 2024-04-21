@@ -28,21 +28,21 @@ import java.io.IOException;
  * 
  */
 class POD {
-	public static void getDetail(int val) {
+	public void getDetail(int val) {
 		System.out.println("parent int obj: " + val);
 	}
 
-	public static String covariantEx(int val) {
-		System.out.println("parent int obj: " + val);
-		return String.valueOf(val);
-	}
-
-	public static Object covariantEx2(int val) {
+	public String covariantEx(int val) {
 		System.out.println("parent int obj: " + val);
 		return String.valueOf(val);
 	}
 
-	public static double primitive(int val) { // covarient primit
+	public Object covariantEx2(int val) {
+		System.out.println("parent int obj: " + val);
+		return String.valueOf(val);
+	}
+
+	public double primitive(int val) { // covarient primit
 		System.out.println("parent int obj: " + val);
 		return val;
 	}
@@ -50,22 +50,22 @@ class POD {
 
 class COD extends POD {
 
-	public static void getDetail(int val) {
+	public void getDetail(int val) {
 		System.out.println("child int obj: " + val);
 	}
 
-	// public static Object covariantEx(int val) { // CE parent cannt be return type
+	// public Object covariantEx(int val) { // CE parent cannt be return type
 	// in overriding // faulty covarint
 	// System.out.println("parent int obj: "+ val);
 	// return String.valueOf(val);
 	// }
 
-	public static String covariantEx2(int val) { // covarient
+	public String covariantEx2(int val) { // covarient
 		System.out.println("parent int obj: " + val);
 		return String.valueOf(val);
 	}
 
-	// public static int primitive(int val) { //covarient primit CE return type must
+	// public int primitive(int val) { //covarient primit CE return type must
 	// same only valid for non primitive
 	// System.out.println("parent int obj: "+ val);
 	// return val;
@@ -93,14 +93,12 @@ class COD extends POD {
  class ChABsCall extends InnerOverriding1 {
 	@Override
 	void m1() {
-		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'm1'");
 	}
  }
  abstract class ChABsCall2 extends InnerOverriding1 {
 	// @Override					//optional
 	// void m1() {
-	// 	// TODO Auto-generated method stub
 	// 	throw new UnsupportedOperationException("Unimplemented method 'm1'");
 	// }
  }
@@ -115,27 +113,6 @@ class COD extends POD {
 		return "child";
 	}
  }
-public class Overriding {
-
-	public static void main(String arg[]) {
-
-		POD obp = new POD();
-		obp.getDetail(0);
-
-		COD cob = new COD();
-		cob.getDetail(0);
-
-		POD obpc = new COD(); // method resolution is based on run time object ie new COD()
-		obpc.getDetail(1);
-
-		an ob = new an();
-		System.out.println(ob.abc());
-
-	}
-
-	// covariant return allowed after java 5
-
-}
 
 /*
  * if child class method throws any checked exception 
@@ -205,12 +182,139 @@ public class Overriding {
 
  }
 
-
+//////////////////////////***********************/////////////////////
 
 /**
+ * static
  * we cannt override static method  ; cannot override; overriden method is static
  */
 class StaticOver {
-  
+	//case 1
+	public static void m1() {
+		System.out.println("parent");
+	}
+
+	//case 2 
+	public void m2() {
+		System.out.println("parent");
+	}
+
+	//case 3		method hiding
+	public static void m3() {
+		System.out.println("parent m3");
+	}
+
+	//case 4     method overriding
+	public void m4() {
+		System.out.println("parent m3");
+	}
+
 	
+}
+
+/*
+	* method overriding - non-statics, JVM is responsible for method resolution based on runtime obj, late binding, runt time poly
+	* method hiding - static-static, compiler is responsible for method resolution based on reference type, early binding, Compile time poly, static poly
+	* 
+*/
+class ChildStatic extends StaticOver {
+
+	//case 1 overridden method should same as parent  ; CE-> overriden method is static 
+ 	// public void m1() {
+		
+	// }
+	
+	//case 2 cannt override nonstatic method as static; CE overriding method is static
+	// public static void m2() {
+
+	// }
+
+	// case 3 static method in Parent and in child with static method oot; method hiding not overriding
+	//case 3		method hiding
+	public static void m3() {
+		System.out.println("child m3");
+	}
+
+	//case 4     method overriding
+	public void m4() {
+		System.out.println("child m4");
+	}
+
+}
+
+
+
+class VarParent {
+
+	public void m1(int... i) {
+		System.out.println("parent m1");
+	}
+
+	public void m2(int i) {
+		System.out.println("parent m2");
+	}
+
+	public void m3(int... i) {
+		System.out.println("parent m3");
+	}
+}
+
+
+class VarChild extends VarParent {
+	public void m1(int... i) {
+		System.out.println("child m1");
+	}
+
+	public void m2(int... i) {
+		System.out.println("child m2");
+	}
+
+	public void m3(int i) {
+		System.out.println("child m3");
+	}
+
+}
+
+public class Overriding {
+
+	public static void main(String arg[]) {
+		// <RHS> compile time obj
+	 	// <LHS> run time object
+		POD obp = new POD();
+		obp.getDetail(0);
+
+		COD cob = new COD();
+		cob.getDetail(0);
+
+		POD obpc = new COD(); // method resolution is based on run time object ie new COD()
+		obpc.getDetail(1);
+
+		an ob = new an();
+		System.out.println(ob.abc());
+
+		StaticOver ob1 = new StaticOver();
+		ChildStatic ob2 = new ChildStatic();
+
+
+		StaticOver ob3 = new ChildStatic();
+		ob3.m4();	//method overriding
+		ob3.m3();  //method hiding
+
+
+		VarChild obje = new VarChild();
+		obje.m1(9, 7);
+		VarParent obje2 = new VarChild();
+		obje2.m1(9,6); 	// child m1   //override    
+		obje2.m1(4);		//child m1		 //override 
+		obje2.m2(6);			//parent m2
+		obje2.m3(3);		//parent m3    //not
+		obje2.m3(6,7); 	//parent m3		//not
+	}
+
+	/*
+	 * covariant return allowed after java 5
+	 * variable resolution based on compiler value always same with respect to reference
+	 */
+	
+
 }
