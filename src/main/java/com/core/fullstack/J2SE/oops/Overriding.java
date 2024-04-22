@@ -275,6 +275,37 @@ class VarChild extends VarParent {
 
 }
 
+/**
+ * InnerOverriding
+ */
+interface Inter {
+
+	public static void name() {
+		System.out.println("intrf");
+	}
+	
+	public default void namedef() {
+		System.out.println("intrf");
+	}
+}
+
+interface InterB {
+	
+	public static void namedef() {
+		System.out.println("intrf");
+	}
+}
+
+/**
+ * InnerOverriding
+ */
+class Interf implements Inter, InterB {
+	public void name2() {
+		Inter.name();
+	}
+	
+}
+
 public class Overriding {
 
 	public static void main(String arg[]) {
@@ -309,12 +340,15 @@ public class Overriding {
 		obje2.m2(6);			//parent m2
 		obje2.m3(3);		//parent m3    //not
 		obje2.m3(6,7); 	//parent m3		//not
+
+		Interf in = new Interf();
+		in.name2();
 	}
+
 
 	/*
 	 * covariant return allowed after java 5
 	 * variable resolution based on compiler value always same with respect to reference
 	 */
-	
 
 }
