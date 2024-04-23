@@ -1,5 +1,13 @@
 package com.core.fullstack.J2SE.exceptionhandling;
 
+
+/*
+ * try => to maintain risky code
+ * catch => to maintain exception handling code
+ * finally => to maintain cleanup code
+ * throw => to send/throw our created exception obj to the jvm manually
+ * throws => to delegate responsibility of exception handling to the caller
+ */
 class ExceptionWaliClass {
 	int i = 0;
 
