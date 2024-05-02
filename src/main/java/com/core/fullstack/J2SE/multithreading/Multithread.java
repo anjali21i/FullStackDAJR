@@ -79,7 +79,13 @@ class MyThreadJ1 extends Thread {
     }
 }
 class MyThreadJ2 extends Thread {
+    static Thread mt;
     public void run() {
+        try {
+            mt.join();   ///child will wait
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
         for (int i = 1; i <= 5; i++) {
             System.out.println(Thread.currentThread().getName() + ": " + i);
            
@@ -148,7 +154,7 @@ public class Multithread {
         try {
             MyThreadJ1 objThJ1 = new MyThreadJ1();
             objThJ1.start();
-            objThJ1.join();  ////// join the next threads after completion of started thread
+            objThJ1.join();  //////main thread will wait; join the next threads after completion of started thread
             // objThJ1.join(88L);  //
             for (int i = 1; i <= 5; i++) {
                 System.out.println(Thread.currentThread().getName() + ": " + i);
@@ -159,13 +165,15 @@ public class Multithread {
                 }
             }
 
-            // MyThreadJ2 objThJ2 = new MyThreadJ2();
-            // objThJ2.join();
+           
             
         } catch (InterruptedException e) {
             // TODO: handle exception
         }
-       
+        MyThreadJ2 objThJ2 = new MyThreadJ2();
+        objThJ2.start();
+        objThJ2.interrupt();   //intupt
+
 
     }
 }
