@@ -1,4 +1,4 @@
-package com.core.fullstack.md.vendingmachine;
+package com.core.fullstack.SystemDesign.vendingmachine;
 
 import java.util.HashMap;
 import java.util.Map;

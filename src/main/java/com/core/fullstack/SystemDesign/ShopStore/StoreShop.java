@@ -1,4 +1,4 @@
-package com.core.fullstack.md.ShopStore;
+package com.core.fullstack.SystemDesign.ShopStore;
 
 import java.util.ArrayList;
 import java.util.List;
