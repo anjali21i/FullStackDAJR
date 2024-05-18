@@ -10,6 +10,13 @@ class TicTacToeModel {
     private final char PLAYER_O = 'O';
     private int size;
 
+    public boolean isEmptyCell(int row, int col) {
+        if(row==0 && col== 0) {
+            return true;
+        }
+        return false;
+    }
+
     public TicTacToeModel(int size) {
         this.size = size;
         this.board = new char[size][size];
