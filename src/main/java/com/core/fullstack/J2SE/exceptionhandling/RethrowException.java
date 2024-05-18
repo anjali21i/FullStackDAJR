@@ -19,7 +19,7 @@ public class RethrowException {
             System.out.println("Caught arithmetic exception: " + e.getMessage());
 
             // Rethrow the exception
-            throw new CustomException("Error occurred in someMethod", e);
+            // throw new CustomException(e);
         }
     }
 

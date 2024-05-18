@@ -1,5 +1,4 @@
-
-
+package com.core.fullstack.J2SE;
 
 public class Inheritance {
   Child objCh = new Child();
@@ -15,12 +14,12 @@ class Parent {
 	}
 
 	Parent(String ab, int ss) {
-		this.ab=ab;
+		this.name=ab;
 		sss=ss;
 	}
 	
 	public void aaa() {
-		ab = "aa";
+		name = "aa";
 	}
 }
 

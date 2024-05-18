@@ -12,7 +12,7 @@ class NotFoundException extends RuntimeException {
     }
 }
 
-public class CustomException {
+public class CustomException extends Throwable {
 
     public static void main(String[] args) {
         String notFound = "404";
