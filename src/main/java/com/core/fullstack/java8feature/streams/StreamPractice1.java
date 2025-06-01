@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class StreamPractice1 {
 	
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		StreamPractice1 val = new StreamPractice1();
 		Employee emp= new Employee(); 
 		List<Employee> dd = val.getData(emp);
@@ -19,7 +19,7 @@ public class StreamPractice1 {
 	
 	public List<Employee>  getData(Employee emp) {
 		log.info("inside creating bean :");
-		List<Employee> list = new ArrayList();
+		List<Employee> list = new ArrayList<>();
 		Employee emp1 = new Employee();
 		emp1.setEmpId(emp.getEmpId());
 		emp1.setEmpEmail(emp.getEmpEmail());

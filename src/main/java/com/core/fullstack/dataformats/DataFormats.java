@@ -103,14 +103,6 @@ public class DataFormats {
 			e.printStackTrace();
 			// TODO: handle exception
 		}
-		
-		
-		
-		
-		
-		
-		
-		
 		Office office = new Office();
 		
 		Department dep = new Department();
@@ -125,7 +117,6 @@ public class DataFormats {
 			emp.setMobile("978766543"+i);
 //			emp.setRegionCode("sds8"+i);
 			dataL.add(emp);
-
 //			System.out.println("emp :---"+ emp.toString());
 		}
 		
@@ -147,12 +138,6 @@ public class DataFormats {
 		 System.out.println("obj d:---"+ obj);
 		 obj  = office;
 		System.out.println("obj :---"+ obj);
-		
-		
-		
-		
-		
-		
 		
 	}
 }
