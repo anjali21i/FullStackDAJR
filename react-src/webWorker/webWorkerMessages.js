@@ -20,7 +20,7 @@ export const retryOrError = (fn, err) => {
 export const getData = (data) => {
     retries++;
     setTimeout(() => {
-        self.postMessage({ type: "DATA", data: { result: "Sample data for " + data } });
+        self.postMessage({ type: "GET_DATA", data: { result: "Sample data for " + data } });
     }, delay);
 }
 
