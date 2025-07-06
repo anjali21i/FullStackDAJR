@@ -17,13 +17,28 @@ export const retryOrError = (fn, err) => {
     }
 }
 
+export const getData = (data) => {
+    retries++;
+    setTimeout(() => {
+        self.postMessage({ type: "DATA", data: { result: "Sample data for " + data } });
+    }, delay);
+}
+
 export const onMessage = (e) => {
-    console.log("Message received from main script", e);
     const { type, data, error } = e.data;
     switch (type) {
+        case 'INIT':
+            retries = 0; // Reset retries on initialization
+            self.postMessage({ type: "READY" });
+            break;
+        case 'FETCH_DATA':
+            if (data) {
+                getData(data);
+            }
+            break;
         case 'RETRY':
             if (retries < maxRetries) {
-                retries++;
+                getData(data);
             } else {
                 self.postMessage({ type: "NO_DATA", error: "Max retries exceeded" });
             }
